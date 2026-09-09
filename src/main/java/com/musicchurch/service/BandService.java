@@ -18,4 +18,14 @@ public class BandService {
         return bandRepository.save(band);
     }
 
+    public Band createBand(String name, String genre) {
+        Band band = new Band(name, genre);
+        return bandRepository.save(band);
+    }
+
+    public Band getBand(Integer id) {
+
+        return bandRepository.getById(id);
+    }
+
 }

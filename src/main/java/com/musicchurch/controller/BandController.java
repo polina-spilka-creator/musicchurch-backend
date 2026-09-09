@@ -2,12 +2,11 @@ package com.musicchurch.controller;
 
 import com.musicchurch.model.Band;
 import com.musicchurch.service.BandService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:5173")
 public class BandController {
     private BandService bandService;
 
@@ -16,8 +15,14 @@ public class BandController {
     }
 
     @PostMapping("/bands")
-    public Band craeteBand(@RequestParam String name ) {
-        return bandService.createBand(name);
+    public Band createBand(@RequestParam String name, @RequestParam String genre) {
+        return bandService.createBand(name, genre);
     }
+
+    @GetMapping("/bands/{id}")
+    public Band getBand(@PathVariable Integer id) {
+        return bandService.getBand(id);
+    }
+
 
 }

@@ -11,13 +11,19 @@ public class Band {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String genre;
 
     public Band(String name) {
         this.name = name;
     }
 
+    public Band(String name, String genre) {
+    }
+
     protected Band() {
     }
+
+
 
     public Integer getId() {
         return id;
@@ -25,6 +31,10 @@ public class Band {
 
     public String getName() {
         return name;
+    }
+
+    public String getGenre() {
+        return genre;
     }
 
 }
