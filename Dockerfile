@@ -2,6 +2,8 @@ FROM amazoncorretto:21
 
 WORKDIR /app
 
+RUN dnf install -y tar gzip && dnf clean all
+
 COPY pom.xml .
 COPY mvnw .
 COPY .mvn .mvn
